@@ -1,0 +1,45 @@
+h1 {
+    position: absolute;
+    margin-left: 42%;
+    top: 10rem;
+    font-size: 60px;
+}
+.box {
+    background-color: black;
+}
+.container {
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    margin-top: 20rem;
+}
+.botoes {
+    font-size: 30px;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    gap: 70px;
+}
+#iniciar {
+    height: 60px;
+    width: 150px;
+    background-color: green;
+    font-size: 30px;
+}
+#parar {
+    font-size: 30px;
+    height: 60px;
+    width: 150px;
+    background-color: rgb(255, 0, 0);
+}
+
+.tela {
+    margin-bottom: 5px;
+    width: 500px;
+    font-size: 100px;
+    display: flex;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.664);
+    align-items: center;
+    justify-content: center;
+}
