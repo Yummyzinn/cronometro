@@ -6,19 +6,33 @@
 let start;
 
 document.getElementById('parar').addEventListener('click',stop, );
-document.getElementById('parar').addEventListener('click',stopa, );
-document.getElementById('parar').addEventListener('click',stopb, );
+//document.getElementById('parar').addEventListener('click',stopa, );
+//document.getElementById('parar').addEventListener('click',stopb, );
 document.getElementById('iniciar').addEventListener('click', all,);
-document.getElementById('iniciar').addEventListener('click', alla,);
-document.getElementById('iniciar').addEventListener('click', allb,);
+//document.getElementById('iniciar').addEventListener('click', alla,);
+//document.getElementById('iniciar').addEventListener('click', allb,);
 function all() {
-  let sec = 0
+  let sec = 55
+  let min = 0
     function segundos() {
-        if (sec>=10){
-        document.getElementById('sec').innerHTML = sec++  } 
+        if (sec>=10 ){
+        document.getElementById('sec').innerHTML = sec++
+
+        
+    } 
         else {
             document.getElementById('sec').innerHTML = '0' + sec++
         }
+            if(sec > 59){
+                sec = 0
+                
+                
+            } 
+            else{}
+            if(sec == 60){
+                document.getElementById('min').innerHTML = min++ 
+            }
+
     }
 intervalID = window.setInterval(segundos, 1000);
     
@@ -33,7 +47,7 @@ clearInterval(intervalID)
 
 
 
-function alla() {
+/*function alla() {
   let min = 0
     function minutos() {
         if (min>=10){
@@ -72,4 +86,4 @@ function stopb(){
 clearInterval(intervalIDb)
 
 }
-
+ */
