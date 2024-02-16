@@ -12,7 +12,7 @@ document.getElementById('iniciar').addEventListener('click', all,);
 //document.getElementById('iniciar').addEventListener('click', alla,);
 //document.getElementById('iniciar').addEventListener('click', allb,);
 function all() {
-  let sec = 55
+  let sec = 0
   let min = 0
     function segundos() {
         if (sec>=10 ){
@@ -23,18 +23,20 @@ function all() {
         else {
             document.getElementById('sec').innerHTML = '0' + sec++
         }
-            if(sec > 59){
+            if(sec > 59) {                              
                 sec = 0
-                
-                
             } 
             else{}
-            if(sec == 60){
-                document.getElementById('min').innerHTML = min++ 
-            }
+                if(sec >57){
+                    document.getElementById('min').innerHTML = min++
+                }
+            
+
+
 
     }
-intervalID = window.setInterval(segundos, 1000);
+intervalID = window.setInterval(segundos, 70);
+
     
 }
 function stop(){ 
