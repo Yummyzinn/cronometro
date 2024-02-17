@@ -1,91 +1,38 @@
- document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('select').onchange = function() {
-            document.querySelector('#hello').style.color    = this.value
-    }
-})
-let start;
+let tempoTotal = 0;
+let cronometro;
+let emExecucao = false;
 
-document.getElementById('parar').addEventListener('click',stop, );
-//document.getElementById('parar').addEventListener('click',stopa, );
-//document.getElementById('parar').addEventListener('click',stopb, );
-document.getElementById('iniciar').addEventListener('click', all,);
-//document.getElementById('iniciar').addEventListener('click', alla,);
-//document.getElementById('iniciar').addEventListener('click', allb,);
-function all() {
-  let sec = 0
-  let min = 0
-    function segundos() {
-        if (sec>=10 ){
-        document.getElementById('sec').innerHTML = sec++
+function formatarTempo(tempo) {
+  const horas = Math.floor(tempo / 3600);
+  const minutos = Math.floor((tempo % 3600) / 60);
+  const segundos = tempo % 60;
 
-        
-    } 
-        else {
-            document.getElementById('sec').innerHTML = '0' + sec++
-        }
-            if(sec > 59) {                              
-                sec = 0
-            } 
-            else{}
-                if(sec >57){
-                    document.getElementById('min').innerHTML = min++
-                }
-            
+  const formatoHoras = horas < 10 ? `0${horas}` : `${horas}`;
+  const formatoMinutos = minutos < 10 ? `0${minutos}` : `${minutos}`;
+  const formatoSegundos = segundos < 10 ? `0${segundos}` : `${segundos}`;
 
-
-
-    }
-intervalID = window.setInterval(segundos, 70);
-
-    
-}
-function stop(){ 
-clearInterval(intervalID)
-
+  return `${formatoHoras}:${formatoMinutos}:${formatoSegundos}`;
 }
 
-
-
-
-
-
-/*function alla() {
-  let min = 0
-    function minutos() {
-        if (min>=10){
-        document.getElementById('min').innerHTML = min++  } 
-        else {
-            document.getElementById('min').innerHTML = '0' + min++
-        }
-        
-    }
-intervalIDa = window.setInterval(minutos, 60000);
-    
-}
-function stopa(){ 
-clearInterval(intervalIDa)
-
+function atualizarCronometro() {
+  tempoTotal++;
+  document.getElementById('cronometro').innerText = formatarTempo(tempoTotal);
 }
 
-
-
-
-
-
-function allb() {
-  let hora = 0
-    function horario() {
-        if (hora>=10){
-        document.getElementById('hora').innerHTML = hora++  } 
-        else {
-            document.getElementById('hora').innerHTML = '0' + hora++
-        }
-    }
-intervalIDb = window.setInterval(horario, 3600000);
-    
+function iniciarCronometro() {
+  if (!emExecucao) {
+    cronometro = setInterval(atualizarCronometro, 1000);
+    emExecucao = true;
+  }
 }
-function stopb(){ 
-clearInterval(intervalIDb)
 
+function pararCronometro() {
+  clearInterval(cronometro);
+  emExecucao = false;
 }
- */
+
+function zerarCronometro() {
+  tempoTotal = 0;
+  document.getElementById('cronometro').innerText = formatarTempo(tempoTotal);
+  pararCronometro();
+}

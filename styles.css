@@ -9,6 +9,7 @@ h1 {
 }
 .container {
     display: flex;
+    
     align-items: center;  
     justify-content: center;
     margin-top: 20rem;
@@ -42,4 +43,5 @@ h1 {
     background-color: rgba(0, 0, 0, 0.664);
     align-items: center;
     justify-content: center;
+    height: 150px;
 }
